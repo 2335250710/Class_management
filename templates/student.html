@@ -33,16 +33,16 @@
                 <th>班级</th>
                 <th>操作</th>
             </tr>
-            {% for stu in stus%}
-            <tr>
-                <td>{{stu.s_id}}</td>
-                <td>{{stu.s_name}}</td>
-                <td>{{stu.grade.g_name}}</td>
-                <td><a href="/user/student/delete/?s_id={{ stu.s_id }}">删除</a></td>
-            </tr>
+            {% for stu in stus %}
+                <tr>
+                    <td>{{ stu.s_id }}</td>
+                    <td>{{ stu.s_name }}</td>
+                    <td>{{ stu.grade.g_name }}</td>
+                    <td><a href="/user/student/delete/?s_id={{ stu.s_id }}">删除</a></td>
+                </tr>
             {% endfor %}
         </table>
-        <p class="msg">共找到{{paginate.total}}条匹配记录</p>
+        <p class="msg">共找到{{ paginate.total }}条匹配记录</p>
     </div>
 
     <ul id="PageNum">
@@ -56,21 +56,21 @@
             <li>
                 {% if p %}
                     {% if p != paginate.page %}
-                    <a href="/user/student/?page={{ p }}">{{ p }}</a>
+                        <a href="/user/student/?page={{ p }}">{{ p }}</a>
                     {% else %}
-                    <span> {{ p }} </span>
+                        <span> {{ p }} </span>
                     {% endif %}
                 {% else %}
                     <span>...</span>
                 {% endif %}
             </li>
-        {% endfor  %}
+        {% endfor %}
 
         {% if paginate.has_next %}
             <li><a href="/user/student/?page={{ paginate.next_num }}">下一页</a></li>
         {% endif %}
-            <li><a href="/user/student/?page={{ paginate.pages }}">尾页</a></li>
-        <span>| 共{{paginate.pages}}页 | 当前第{{paginate.page}}页</span>
+        <li><a href="/user/student/?page={{ paginate.pages }}">尾页</a></li>
+        <span>| 共{{ paginate.pages }}页 | 当前第{{ paginate.page }}页</span>
     </ul>
 </div>
 

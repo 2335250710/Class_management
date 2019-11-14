@@ -1,20 +1,20 @@
-from flask import Blueprint,render_template,url_for,redirect,request
+from flask import Blueprint, render_template, url_for, redirect, request
 from models.models import *
 from utils.ch_login import *
 
-students = Blueprint('students',__name__)
+students = Blueprint('students', __name__)
 
 
 @students.route('/student/')
 @is_login
 def student():
-    page = int(request.args.get('page',1))
-    paginate = Student.query.paginate(page,3,False)
+    page = int(request.args.get('page', 1))
+    paginate = Student.query.paginate(page, 3, False)
     stus = paginate.items
-    return render_template('student.html',stus=stus,paginate=paginate)
+    return render_template('student.html', stus=stus, paginate=paginate)
 
 
-@students.route('/addstu/',methods=['GET','POST'])
+@students.route('/addstu/', methods=['GET', 'POST'])
 @is_login
 def addstu():
     grades = Grade.query.all()
@@ -27,16 +27,16 @@ def addstu():
             return render_template('addstu.html', msg=msg)
         elif g_name is None:
             msg = '请选择班级'
-            return render_template('addstu.html',msg=msg)
+            return render_template('addstu.html', msg=msg)
         else:
             grade_id = Grade.query.filter_by(g_id=g_name).first().g_id
-            add = Student(s_sex=s_sex,s_name=s_name,grade_id=grade_id)
+            add = Student(s_sex=s_sex, s_name=s_name, grade_id=grade_id)
             db.session.add(add)
             db.session.commit()
             msg = '添加成功'
-            return render_template('addstu.html',msg=msg,grades=grades)
+            return render_template('addstu.html', msg=msg, grades=grades)
     else:
-        return render_template('addstu.html',grades=grades)
+        return render_template('addstu.html', grades=grades)
 
 
 @students.route('/student/delete/')

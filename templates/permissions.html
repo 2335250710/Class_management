@@ -34,15 +34,15 @@
                 <th>操作</th>
             </tr>
             {% for permission in permissions %}
-            <tr>
-                <td>{{permission.p_id}}</td>
-                <td>{{permission.p_name}}</td>
-                <td>{{permission.p_er}}</td>
-                <td>
-                    <a href="/user/eidtorpermission/?p_id={{permission.p_id}}">编辑</a> |
-                    <a href="/user/delpermission/?p_id={{permission.p_id}}">删除</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>{{ permission.p_id }}</td>
+                    <td>{{ permission.p_name }}</td>
+                    <td>{{ permission.p_er }}</td>
+                    <td>
+                        <a href="/user/eidtorpermission/?p_id={{ permission.p_id }}">编辑</a> |
+                        <a href="/user/delpermission/?p_id={{ permission.p_id }}">删除</a>
+                    </td>
+                </tr>
             {% endfor %}
 
 

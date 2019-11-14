@@ -54,7 +54,7 @@
 
         <div class="form_boxC">
             <p>"<span class="f_cB">*</span>"号为必填项目</p>
-            <span style="color: red">{{msg}}</span>
+            <span style="color: red">{{ msg }}</span>
             <form action="" method="post">
                 <table cellpadding="0" cellspacing="0">
                     <tr>
@@ -85,7 +85,7 @@
                                 <dl class="select">
                                     <select name="g_name" id="">
                                         {% for grade in grades %}
-                                        <option value="{{grade.g_id}}">{{grade.g_name}}</option>
+                                            <option value="{{ grade.g_id }}">{{ grade.g_name }}</option>
                                         {% endfor %}
                                     </select>
                                 </dl>

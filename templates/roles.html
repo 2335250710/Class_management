@@ -31,17 +31,18 @@
                 <th>序号</th>
                 <th>角色名称</th>
                 <th>操作</th>
-            </tr>s
-            {% for role in roles%}
-            <tr>
-                <td>{{role.r_id}}</td>
-                <td>{{role.r_name}}</td>
-                <td>
-                    <a href="/user/userperlist/?r_id={{role.r_id}}">查看权限</a> |
-                    <a href="/user/adduserper/?r_id={{role.r_id}}">添加权限 </a> |
-                    <a href="/user/subuserper/?r_id={{role.r_id}}">减少权限</a>
-                </td>
             </tr>
+            s
+            {% for role in roles %}
+                <tr>
+                    <td>{{ role.r_id }}</td>
+                    <td>{{ role.r_name }}</td>
+                    <td>
+                        <a href="/user/userperlist/?r_id={{ role.r_id }}">查看权限</a> |
+                        <a href="/user/adduserper/?r_id={{ role.r_id }}">添加权限 </a> |
+                        <a href="/user/subuserper/?r_id={{ role.r_id }}">减少权限</a>
+                    </td>
+                </tr>
             {% endfor %}
         </table>
     </div>

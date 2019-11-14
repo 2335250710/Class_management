@@ -62,13 +62,13 @@
                         <th width="100">权限名称</th>
                         <td>
                             <div class="selectbox" style="width:230px;">
-                                <input type="hidden" name="r_id" value="{{r_id}}">
-                                    <select name="p_id" id="">
-                                        {% for per in pers %}
-                                            <option value="{{ per.p_id }}">{{ per.p_name }}</option>
-                                        {% endfor %}
-                                    </select>
-                                    <span style="color: red">{{ msg }}</span>
+                                <input type="hidden" name="r_id" value="{{ r_id }}">
+                                <select name="p_id" id="">
+                                    {% for per in pers %}
+                                        <option value="{{ per.p_id }}">{{ per.p_name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <span style="color: red">{{ msg }}</span>
                             </div>
                         </td>
                     </tr>

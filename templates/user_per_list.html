@@ -25,7 +25,7 @@
 <!-- MainForm -->
 <div id="MainForm">
     <div class="form_boxA">
-        <h2>{{user}}权限列表</h2>
+        <h2>{{ user }}权限列表</h2>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th>序号</th>
@@ -33,19 +33,19 @@
                 <th>简写</th>
                 <th>操作</th>
             </tr>
-            {% for p in pers%}
-            <tr>
-                <td>{{p.p_id}}</td>
-                <td>{{p.p_name}}</td>
-                <td>{{p.p_er}}</td>
-                <td>
-                    <form action="" method="post">
-                        <input type="hidden" name="p_id" value="{{p.p_id}}">
-                        <input type="hidden" name="r_id" value="{{r_id}}">
-                        <input type="submit" value="删除" style="background: none;border: none;color: deepskyblue">
-                    </form>
-                </td>
-            </tr>
+            {% for p in pers %}
+                <tr>
+                    <td>{{ p.p_id }}</td>
+                    <td>{{ p.p_name }}</td>
+                    <td>{{ p.p_er }}</td>
+                    <td>
+                        <form action="" method="post">
+                            <input type="hidden" name="p_id" value="{{ p.p_id }}">
+                            <input type="hidden" name="r_id" value="{{ r_id }}">
+                            <input type="submit" value="删除" style="background: none;border: none;color: deepskyblue">
+                        </form>
+                    </td>
+                </tr>
             {% endfor %}
         </table>
     </div>
